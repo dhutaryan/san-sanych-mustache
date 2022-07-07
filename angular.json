@@ -12,7 +12,7 @@
         "@schematics/angular:component": {
           "style": "scss",
           "changeDetection": "OnPush",
-          "skipTests": false
+          "skipTests": true
         },
         "@schematics/angular:service": {
           "skipTests": true
@@ -33,9 +33,16 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
+              }
             ],
             "styles": [
+              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
               "src/styles.scss"
             ],
             "scripts": []
