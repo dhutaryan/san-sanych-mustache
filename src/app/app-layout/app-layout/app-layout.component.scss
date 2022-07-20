@@ -1,7 +1,19 @@
 @import '~@taiga-ui/core/styles/taiga-ui-local';
 
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 header {
   @include shadow(1);
-  padding: 0 16px;
+  padding: 0 1rem;
   height: 3.9375rem;
+}
+
+.app-layout-wrapper {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: hidden;
 }
