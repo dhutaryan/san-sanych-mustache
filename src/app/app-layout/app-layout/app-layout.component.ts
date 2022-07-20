@@ -6,8 +6,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./app-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppLayoutComponent implements OnInit {
-  constructor() {}
+export class AppLayoutComponent {
+  public isSidebarOpen = false;
 
-  ngOnInit(): void {}
+  public onToggleSidebar(isOpen: boolean): void {
+    this.isSidebarOpen = isOpen;
+  }
 }

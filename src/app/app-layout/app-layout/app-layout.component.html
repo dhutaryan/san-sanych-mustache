@@ -5,7 +5,12 @@
       appearance="icon"
       icon="tuiIconMenuLarge"
       tuiIconButton
-    ></button>
+      (tuiActiveZoneChange)="onToggleSidebar($event)"
+      (click)="onToggleSidebar(true)"
+    >
+      <ssm-sidebar [isOpen]="isSidebarOpen"></ssm-sidebar>
+    </button>
   </header>
+
   <router-outlet></router-outlet>
 </tui-root>

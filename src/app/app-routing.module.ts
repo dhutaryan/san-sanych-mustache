@@ -6,7 +6,21 @@ import { AppLayoutComponent } from './app-layout/app-layout/app-layout.component
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: '/predictions',
+  },
+  {
+    path: '',
     component: AppLayoutComponent,
+    children: [
+      {
+        path: 'predictions',
+        loadChildren: () =>
+          import('./predictions/predictions.module').then(
+            (m) => m.PredictionsModule
+          ),
+      },
+    ],
   },
 ];
 

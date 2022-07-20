@@ -1,0 +1,18 @@
+.sidebar {
+  height: 100%;
+}
+
+nav {
+  li {
+    height: 3rem;
+    cursor: pointer;
+
+    &.router-link-active:not(:hover) {
+      background-color: var(--tui-primary);
+    }
+
+    &:hover {
+      background-color: var(--tui-primary-hover);
+    }
+  }
+}
