@@ -4,13 +4,10 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   selector: 'ssm-predictions',
   templateUrl: './predictions.component.html',
   styleUrls: ['./predictions.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PredictionsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

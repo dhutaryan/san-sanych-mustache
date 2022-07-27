@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TuiAlertModule, TuiButtonModule, TuiRootModule } from '@taiga-ui/core';
+import { TuiAlertModule, TuiButtonModule } from '@taiga-ui/core';
 import { TuiSidebarModule } from '@taiga-ui/addon-mobile';
 import { TuiActiveZoneModule } from '@taiga-ui/cdk';
 
@@ -14,7 +14,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     CommonModule,
     FlexLayoutModule,
-    TuiRootModule,
     TuiAlertModule,
     TuiButtonModule,
     TuiSidebarModule,

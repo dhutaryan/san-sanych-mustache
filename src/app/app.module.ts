@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TuiRootModule } from '@taiga-ui/core';
 
 import { CoreModule } from './core/core.module';
 import { AppLayoutModule } from './app-layout/app-layout.module';
@@ -13,6 +14,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
+    TuiRootModule,
     AppLayoutModule,
     AppRoutingModule,
   ],

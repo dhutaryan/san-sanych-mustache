@@ -1,19 +1,17 @@
-<tui-root>
-  <header fxLayout="row" fxLayoutAlign="start center">
-    <button
-      type="button"
-      appearance="icon"
-      icon="tuiIconMenuLarge"
-      tuiIconButton
-      (tuiActiveZoneChange)="onToggleSidebar($event)"
-      (click)="onToggleSidebar(true)"
-    >
-      <ssm-sidebar [isOpen]="isSidebarOpen"></ssm-sidebar>
-    </button>
-    <h3 class="tui-text_h3">{{ titleText }}</h3>
-  </header>
+<header fxLayout="row" fxLayoutAlign="start center">
+  <button
+    type="button"
+    appearance="icon"
+    icon="tuiIconMenuLarge"
+    tuiIconButton
+    (tuiActiveZoneChange)="onToggleSidebar($event)"
+    (click)="onToggleSidebar(true)"
+  >
+    <ssm-sidebar [isOpen]="isSidebarOpen"></ssm-sidebar>
+  </button>
+  <h3 class="tui-text_h3">{{ titleText }}</h3>
+</header>
 
-  <div class="app-layout-wrapper" fxLayout="column">
-    <router-outlet></router-outlet>
-  </div>
-</tui-root>
+<div class="app-layout-wrapper" fxLayout="column">
+  <router-outlet></router-outlet>
+</div>
