@@ -1,2 +1,7 @@
-<ssm-prediction-item></ssm-prediction-item>
-<ssm-prediction-item></ssm-prediction-item>
+<h2 class="tui-text_h2">Ближайшие</h2>
+
+<div fxLayout="column" fxLayoutGap="16px">
+  <ng-template ngFor let-prediction [ngForOf]="predictions$ | async">
+    <ssm-prediction-item [prediction]="prediction"></ssm-prediction-item>
+  </ng-template>
+</div>

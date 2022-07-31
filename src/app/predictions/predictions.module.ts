@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TuiIslandModule } from '@taiga-ui/kit';
+import { TuiBadgedContentModule, TuiIslandModule } from '@taiga-ui/kit';
 
 import { PredictionsRoutingModule } from './predictions-routing.module';
 import { PredictionsComponent } from './containers/predictions/predictions.component';
@@ -13,6 +13,7 @@ import { PredictionItemComponent } from './components/prediction-item/prediction
     CommonModule,
     FlexLayoutModule,
     TuiIslandModule,
+    TuiBadgedContentModule,
     PredictionsRoutingModule,
   ],
 })

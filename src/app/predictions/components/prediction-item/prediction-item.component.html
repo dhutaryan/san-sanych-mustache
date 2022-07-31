@@ -14,7 +14,7 @@
     fxFlex.lt-md="none"
   >
     <span class="tui-island__category">Дата и время</span>
-    <span>27.07.2021 22:50</span>
+    <span>{{ prediction.startTime | date: 'dd.MM.yyyy, HH:mm' }}</span>
   </div>
   <div
     fxLayout="column"
@@ -25,7 +25,7 @@
     fxFlex.lt-md="none"
   >
     <span class="tui-island__category">Команды</span>
-    <span>Гомель - Арис</span>
+    <span>{{ prediction.team1.name }} - {{ prediction.team2.name }}</span>
   </div>
   <div
     fxLayout="column"
@@ -36,6 +36,16 @@
     fxFlex.lt-md="none"
   >
     <span class="tui-island__category">Счет</span>
-    <span>1 - 3 (0 - 2)</span>
+    <span>
+      {{ prediction.team1.primaryPoint }} -
+      {{ prediction.team2.primaryPoint }}
+      <ng-template
+        [ngIf]="
+          prediction.team1.secondaryPoint ?? prediction.team2.secondaryPoint
+        "
+      ></ng-template>
+      ({{ prediction.team1.secondaryPoint }} -
+      {{ prediction.team2.secondaryPoint }})
+    </span>
   </div>
 </tui-island>

@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { PredictionsService } from '../../predictions.service';
+
 @Component({
   selector: 'ssm-predictions',
   templateUrl: './predictions.component.html',
@@ -7,7 +9,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PredictionsComponent implements OnInit {
-  constructor() {}
+  public predictions$ = this.predictionsService.getAll();
+
+  constructor(private predictionsService: PredictionsService) {}
 
   ngOnInit(): void {}
 }
