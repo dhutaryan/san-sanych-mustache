@@ -9,4 +9,5 @@ export interface PredictionTeam {
   name: string;
   primaryPoint: number;
   secondaryPoint: number;
+  score?: number;
 }
