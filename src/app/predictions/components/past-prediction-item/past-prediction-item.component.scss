@@ -1,0 +1,16 @@
+:host {
+  width: 100%;
+  max-width: 640px;
+}
+
+tui-badged-content {
+  display: block;
+}
+
+.prediction-score {
+  margin-top: 0.125rem;
+  padding: 0 0.5rem;
+  background-color: var(--tui-primary);
+  border-radius: 6.25rem;
+  box-shadow: none;
+}

@@ -10,6 +10,8 @@
 
 <div fxLayout="column" fxLayoutGap="16px">
   <ng-template ngFor let-prediction [ngForOf]="pastPredictions$ | async">
-    <ssm-prediction-item [prediction]="prediction"></ssm-prediction-item>
+    <ssm-past-prediction-item
+      [prediction]="prediction"
+    ></ssm-past-prediction-item>
   </ng-template>
 </div>
