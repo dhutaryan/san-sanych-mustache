@@ -9,7 +9,8 @@ import { PredictionsService } from '../../predictions.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PredictionsComponent implements OnInit {
-  public predictions$ = this.predictionsService.getAll();
+  public readonly upcomingPredictions$ = this.predictionsService.upcoming();
+  public readonly pastPredictions$ = this.predictionsService.past();
 
   constructor(private predictionsService: PredictionsService) {}
 

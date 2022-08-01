@@ -4,6 +4,7 @@ import {
   collectionData,
   CollectionReference,
   Firestore,
+  limit,
   orderBy,
   query,
   where,
@@ -21,12 +22,22 @@ export class PredictionsService {
 
   constructor(private firestore: Firestore) {}
 
-  getAll(): Observable<Prediction[]> {
+  upcoming(): Observable<Prediction[]> {
     const predictionsQuery = query<Prediction>(
       this.collectionRef,
-      where('team1.score', '==', null),
-      where('team2.score', '==', null),
+      where('hasScore', '==', false),
       orderBy('startTime', 'asc'),
+    );
+
+    return collectionData<Prediction>(predictionsQuery);
+  }
+
+  past(): Observable<Prediction[]> {
+    const predictionsQuery = query<Prediction>(
+      this.collectionRef,
+      where('hasScore', '==', true),
+      orderBy('startTime', 'asc'),
+      limit(10),
     );
 
     return collectionData<Prediction>(predictionsQuery);
