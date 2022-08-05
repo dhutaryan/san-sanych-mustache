@@ -3,7 +3,7 @@ export interface Prediction {
   startTime: number;
   team1: PredictionTeam;
   team2: PredictionTeam;
-  hasScore: boolean;
+  readonly hasScore: boolean;
 }
 
 export interface PredictionTeam {
