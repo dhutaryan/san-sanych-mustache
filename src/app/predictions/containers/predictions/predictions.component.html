@@ -1,4 +1,16 @@
-<h2 class="tui-text_h2">Ближайшие</h2>
+<div fxLayout="row" fxLayoutAlign="space-between">
+  <h2 class="tui-text_h2">Ближайшие</h2>
+  <button
+    fxFlexAlign="center"
+    type="button"
+    routerLink="create"
+    appearance="primary"
+    size="m"
+    tuiButton
+  >
+    Добавить
+  </button>
+</div>
 
 <div fxLayout="column" fxLayoutGap="16px">
   <ng-template ngFor let-prediction [ngForOf]="upcomingPredictions$ | async">

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -7,15 +7,14 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppLayoutComponent implements OnInit {
+export class AppLayoutComponent {
   public isSidebarOpen = false;
-  public titleText: string;
+
+  public get titleText(): string {
+    return this.title.getTitle().replace(/\s-\W+/gi, '');
+  }
 
   constructor(private title: Title) {}
-
-  ngOnInit() {
-    this.titleText = this.title.getTitle().replace(/\s-\W+/gi, '');
-  }
 
   public onToggleSidebar(isOpen: boolean): void {
     this.isSidebarOpen = isOpen;

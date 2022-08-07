@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
         storageBucket: process.env['FIRESTORE_STORAGE_BUCKET'],
         messagingSenderId: process.env['FIRESTORE_AMESSAGING_SENDER_ID'],
         appId: process.env['FIRESTORE_APP_ID'],
-      })
+      }),
     ),
     provideFirestore(() => getFirestore()),
     CoreModule,

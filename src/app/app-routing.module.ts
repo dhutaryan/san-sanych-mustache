@@ -15,10 +15,9 @@ const routes: Routes = [
     children: [
       {
         path: 'predictions',
-        title: 'Прогнозы',
         loadChildren: () =>
           import('./predictions/predictions.module').then(
-            (m) => m.PredictionsModule
+            (m) => m.PredictionsModule,
           ),
       },
     ],
