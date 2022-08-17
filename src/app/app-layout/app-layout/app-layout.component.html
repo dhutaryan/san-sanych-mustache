@@ -7,7 +7,10 @@
     (tuiActiveZoneChange)="onToggleSidebar($event)"
     (click)="onToggleSidebar(true)"
   >
-    <ssm-sidebar [isOpen]="isSidebarOpen"></ssm-sidebar>
+    <ssm-sidebar
+      [isOpen]="isSidebarOpen"
+      (close)="onToggleSidebar(false)"
+    ></ssm-sidebar>
   </button>
   <h3 class="tui-text_h3">{{ titleText }}</h3>
 </header>

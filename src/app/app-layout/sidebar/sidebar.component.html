@@ -6,8 +6,18 @@
         fxLayoutAlign="center center"
         routerLink="/predictions"
         routerLinkActive="router-link-active"
+        (click)="close.emit()"
       >
         Прогнозы
+      </li>
+      <li
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        routerLink="/championships"
+        routerLinkActive="router-link-active"
+        (click)="close.emit()"
+      >
+        Чемпионаты
       </li>
     </ul>
   </nav>

@@ -20,6 +20,13 @@ const routes: Routes = [
             (m) => m.PredictionsModule,
           ),
       },
+      {
+        path: 'championships',
+        loadChildren: () =>
+          import('./championships/championships.module').then(
+            (m) => m.ChampionshipsModule,
+          ),
+      },
     ],
   },
 ];
