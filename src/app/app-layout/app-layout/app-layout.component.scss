@@ -10,12 +10,16 @@
 header {
   @include shadow(1);
   height: 3.9375rem;
+
+  .tui-text_h3 {
+    margin: 0;
+  }
 }
 
 .app-layout-wrapper {
   flex-grow: 1;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem;
   width: 100%;
   max-width: 960px;
 }
