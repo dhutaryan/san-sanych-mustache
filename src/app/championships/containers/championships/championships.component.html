@@ -1,1 +1,21 @@
-<p>championships works!</p>
+<ng-template ngFor let-champ [ngForOf]="championships$ | async">
+  <tui-island
+    fxLayout="row"
+    fxLayout.lt-md="column"
+    fxLayoutGap="16px"
+    fxLayoutGap.lt-md="4px"
+    size="m"
+    [hoverable]="true"
+  >
+    <div
+      fxLayout="column"
+      fxLayout.lt-md="row"
+      fxLayoutGap="8px"
+      fxLayoutAlign.lt-md="space-between center"
+      fxFlex.lt-md="none"
+    >
+      <span class="tui-island__category">Название</span>
+      <span>{{ champ.name }}</span>
+    </div>
+  </tui-island>
+</ng-template>
