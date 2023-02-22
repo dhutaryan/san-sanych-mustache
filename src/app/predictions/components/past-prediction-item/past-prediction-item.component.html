@@ -1,9 +1,0 @@
-<tui-badged-content size="l" [contentBottom]="predictionScore">
-  <ssm-prediction-item [prediction]="prediction"></ssm-prediction-item>
-</tui-badged-content>
-
-<ng-template #predictionScore>
-  <span class="prediction-score">
-    {{ prediction.team1.score }} - {{ prediction.team2.score }}
-  </span>
-</ng-template>
