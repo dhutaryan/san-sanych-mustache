@@ -12,7 +12,7 @@ const LayoutHeader = styled(Layout.Header)`
   box-shadow: 0 0.25rem 1.5rem rgb(0 0 0 / 12%);
 
   &.ant-layout-header {
-    padding: 0;
+    padding: 0 1rem;
   }
 `;
 

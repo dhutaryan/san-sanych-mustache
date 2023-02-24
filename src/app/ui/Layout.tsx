@@ -8,6 +8,9 @@ const LayoutContent = styled(Layout.Content)`
   display: flex;
   flex-direction: column;
   flex: 1 1 100%;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
   padding: 2rem 1rem 1rem;
 `;
 
