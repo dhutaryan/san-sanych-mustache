@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Layout, Typography } from 'antd';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { TitleContext } from '../../shared/context';
 
