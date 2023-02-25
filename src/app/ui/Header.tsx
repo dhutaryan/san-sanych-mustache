@@ -1,8 +1,8 @@
-import { FC } from 'react';
-import { Layout, Typography } from 'antd';
 import styled from '@emotion/styled';
+import { Layout, Typography } from 'antd';
+import { FC } from 'react';
 
-import { TitleContext } from '../../shared/context';
+import { TitleContext } from '@shared/context';
 
 const { Title } = Typography;
 

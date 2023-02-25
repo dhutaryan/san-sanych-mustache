@@ -1,6 +1,6 @@
+import { Spin } from 'antd';
 import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { Spin } from 'antd';
 
 export const withRouter = (component: () => React.ReactNode) => () =>
   (

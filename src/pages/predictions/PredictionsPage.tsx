@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 
-import { TitleContext } from '../../shared/context';
+import { TitleContext } from '@shared/context';
 
 const PredictionsPage = () => {
   const { setTitle } = useContext(TitleContext);

@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react';
-import { Layout } from 'antd';
 import styled from '@emotion/styled';
+import { Layout } from 'antd';
+import { FC, PropsWithChildren } from 'react';
 
 import { Header } from './Header';
 
