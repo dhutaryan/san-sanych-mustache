@@ -1,4 +1,7 @@
+import { Space } from 'antd';
 import { useContext, useEffect } from 'react';
+
+import { PredictionCard } from '@entities/prediction';
 
 import { TitleContext } from '@shared/context';
 
@@ -7,7 +10,14 @@ const PredictionsPage = () => {
   document.title = 'Прогнозы';
   useEffect(() => setTitle('Прогнозы'));
 
-  return <span>Predictions</span>;
+  return (
+    <Space direction="vertical" size={16}>
+      <PredictionCard />
+      <PredictionCard />
+      <PredictionCard />
+      <PredictionCard />
+    </Space>
+  );
 };
 
 export default PredictionsPage;
