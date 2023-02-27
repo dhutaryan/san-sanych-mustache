@@ -1,4 +1,5 @@
 {
+  "plugins": ["boundaries"],
   "extends": [
     "eslint:recommended",
     "plugin:import/errors",
@@ -18,13 +19,13 @@
       "typescript": {}
     },
     "boundaries/elements": [
-      { "type": "app", "pattern": "@app/*" },
-      { "type": "processes", "pattern": "@processes/*" },
-      { "type": "pages", "pattern": "@pages/*" },
-      { "type": "widgets", "pattern": "@widgets/*" },
-      { "type": "features", "pattern": "@features/*" },
-      { "type": "entities", "pattern": "@entities/*" },
-      { "type": "shared", "pattern": "@shared/*" }
+      { "type": "app", "pattern": "src/app/*" },
+      { "type": "processes", "pattern": "src/processes/*" },
+      { "type": "pages", "pattern": "src/pages/*" },
+      { "type": "widgets", "pattern": "src/widgets/*" },
+      { "type": "features", "pattern": "src/features/*" },
+      { "type": "entities", "pattern": "src/entities/*" },
+      { "type": "shared", "pattern": "src/shared/*" }
     ],
     "boundaries/ignore": ["**/*.test.*"]
   },
@@ -103,7 +104,35 @@
           },
           {
             "message": "Private imports are prohibited, use public imports instead",
-            "group": ["@shared/*/**"]
+            "group": ["@shared/*/*/**"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/app"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/processes"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/pages"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/widgets"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/features"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/entities"]
+          },
+          {
+            "message": "Prefer absolute imports instead of relatives (for root modules)",
+            "group": ["../**/shared"]
           }
         ]
       }
@@ -138,7 +167,8 @@
           { "from": "shared", "allow": ["shared"] }
         ]
       }
-    ]
+    ],
+    "@typescript-eslint/no-misused-promises": "off"
   },
   "overrides": [
     { "files": ["**/*.test.*"], "rules": { "boundaries/element-types": "off" } }
