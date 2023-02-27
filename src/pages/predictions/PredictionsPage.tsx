@@ -5,17 +5,20 @@ import { PredictionCard } from '@entities/prediction';
 
 import { TitleContext } from '@shared/context';
 
+import { usePredictions } from './hooks';
+
 const PredictionsPage = () => {
-  const { setTitle } = useContext(TitleContext);
   document.title = 'Прогнозы';
+  const { setTitle } = useContext(TitleContext);
+  const { predictions } = usePredictions();
+
   useEffect(() => setTitle('Прогнозы'));
 
   return (
     <Space direction="vertical" size={16}>
-      <PredictionCard />
-      <PredictionCard />
-      <PredictionCard />
-      <PredictionCard />
+      {predictions.map((prediction) => (
+        <PredictionCard key={prediction.id} prediction={prediction} />
+      ))}
     </Space>
   );
 };

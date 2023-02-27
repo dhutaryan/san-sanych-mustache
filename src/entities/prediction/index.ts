@@ -1,1 +1,1 @@
-export * from './ui';
+export { PredictionCard } from './ui';

@@ -24,6 +24,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@processes/*": ["src/processes/*"],
+      "@pages": ["src/pages/index.tsx"],
       "@pages/*": ["src/pages/*"],
       "@widgets/*": ["src/widgets/*"],
       "@features/*": ["src/features/*"],
