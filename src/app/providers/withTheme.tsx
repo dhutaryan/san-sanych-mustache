@@ -4,7 +4,7 @@ import { ThemeConfig } from 'antd/es/config-provider/context';
 const white = '#ffffff';
 
 const theme: ThemeConfig = {
-  token: { colorBgLayout: white },
+  token: { colorBgLayout: white, fontSize: 16, lineHeight: 1 },
   components: {
     Layout: {
       colorBgHeader: white,
