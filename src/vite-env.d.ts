@@ -1,5 +1,7 @@
 /// <reference types="vite/client" />
 
+/// <reference types="vite/client" />
+
 interface ImportMetaEnv {
   readonly VITE_FIRESTORE_API_KEY: string;
   readonly VITE_FIRESTORE_AUTH_DOMAIN: string;
