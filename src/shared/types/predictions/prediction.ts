@@ -1,5 +1,4 @@
-import { Optional } from '@shared/utils';
-
+import { Optional } from '../../lib';
 import { Championship } from '../championships';
 
 import { PredictionDocument } from './predictionDocument';

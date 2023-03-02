@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react';
 
 import { PredictionCard } from '@entities/prediction';
 
-import { TitleContext } from '@shared/context';
+import { TitleContext } from '@shared/lib';
 
 import { usePredictions } from './hooks';
 

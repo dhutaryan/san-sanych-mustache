@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Layout, Typography } from 'antd';
 import { FC } from 'react';
 
-import { TitleContext } from '@shared/context';
+import { TitleContext } from '@shared/lib';
 
 const { Title } = Typography;
 

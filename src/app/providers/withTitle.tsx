@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { TitleContext } from '@shared/context';
+import { TitleContext } from '@shared/lib';
 
 export const withTitle = (component: () => React.ReactNode) => () => {
   const [title, setTitle] = useState('SanSanychMustache');
