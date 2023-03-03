@@ -1,1 +1,1 @@
-export { PredictionCard } from './ui';
+export { PredictionCard, PastPredictionCard, PredictionsList } from './ui';

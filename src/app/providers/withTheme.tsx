@@ -4,8 +4,26 @@ import { ThemeConfig } from 'antd/es/config-provider/context';
 const white = '#ffffff';
 
 const theme: ThemeConfig = {
-  token: { colorBgLayout: white, fontSize: 16, lineHeight: 1 },
+  token: {
+    colorBgLayout: white,
+    fontSize: 16,
+    lineHeight: 1,
+    fontSizeHeading1: 40,
+    fontSizeHeading2: 32,
+    fontSizeHeading3: 28,
+    fontSizeHeading4: 24,
+    fontSizeHeading5: 20,
+    lineHeightHeading1: 1,
+    lineHeightHeading2: 1,
+    lineHeightHeading3: 1,
+    lineHeightHeading4: 1,
+    lineHeightHeading5: 1,
+  },
   components: {
+    Badge: {
+      fontSize: 16,
+      lineHeight: 1.375,
+    },
     Layout: {
       colorBgHeader: white,
     },

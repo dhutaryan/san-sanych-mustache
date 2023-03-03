@@ -19,7 +19,7 @@ const LayoutHeader = styled(Layout.Header)`
 export const Header: FC = () => {
   return (
     <LayoutHeader>
-      <Title level={3}>
+      <Title level={2}>
         <TitleContext.Consumer>{(value) => value.title}</TitleContext.Consumer>
       </Title>
     </LayoutHeader>

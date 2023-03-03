@@ -8,7 +8,7 @@ import { usePoints } from '../../hooks';
 
 import { PredictionCardItem } from './PredictionCardItem';
 
-type Props = {
+export type Props = {
   prediction: Prediction;
 };
 
