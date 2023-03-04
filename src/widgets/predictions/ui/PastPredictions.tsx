@@ -7,7 +7,7 @@ import { usePredictions } from '../hooks';
 const { Title } = Typography;
 
 export const PastPredictions = () => {
-  const { predictions } = usePredictions({ hasScore: true });
+  const { predictions } = usePredictions({ hasScore: true, take: 10 });
 
   return (
     <Space direction="vertical" size={16}>

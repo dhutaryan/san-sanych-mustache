@@ -1,57 +1,44 @@
 import {
-  getDoc,
-  onSnapshot,
+  limit,
   orderBy,
   query,
+  QueryConstraint,
   Unsubscribe,
   where,
 } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 
-import { predictionsCollection } from '@shared/api';
+import { predictionsCollection, predictionsSnapshot } from '@shared/api';
 import { Prediction, PredictionDocument } from '@shared/types';
 
 export interface PredictionsParams {
   hasScore: boolean;
+  take?: number;
 }
 
-export const usePredictions = ({ hasScore }: PredictionsParams) => {
+export const usePredictions = ({ hasScore, take }: PredictionsParams) => {
   const [predictions, setPredictions] = useState<Prediction[]>([]);
+  const queryConstraints: QueryConstraint[] = [
+    where('hasScore', '==', hasScore),
+    orderBy('startTime', 'asc'),
+  ];
+
+  if (take) {
+    queryConstraints.push(limit(take));
+  }
 
   const predictionsQuery = query<PredictionDocument>(
     predictionsCollection,
-    where('hasScore', '==', hasScore),
-    orderBy('startTime', 'asc'),
+    ...queryConstraints,
   );
 
   useEffect(() => {
-    const unsubscribe: Unsubscribe = onSnapshot<PredictionDocument>(
+    const unsubscribe: Unsubscribe = predictionsSnapshot(
       predictionsQuery,
-      {
-        next: async (snapshot) => {
-          const result: Prediction[] = await Promise.all(
-            snapshot.docs.map(async (data) => {
-              const docRef = data.data().championship;
-              const championshipDoc = await getDoc(docRef);
-              const prediction = data.data();
-
-              return {
-                ...prediction,
-                id: data.id,
-                championship: {
-                  ...championshipDoc.data(),
-                  id: championshipDoc.id,
-                },
-              };
-            }),
-          );
-
-          setPredictions(result);
-
-          return unsubscribe;
-        },
-      },
+      setPredictions,
     );
+
+    return unsubscribe;
   }, []);
 
   return { predictions };
