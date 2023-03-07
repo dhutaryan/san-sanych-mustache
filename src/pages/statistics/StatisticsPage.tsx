@@ -1,13 +1,13 @@
-import { Space, Typography } from 'antd';
+import { Space } from 'antd';
 
 import { PastPredictions } from '@widgets/predictions';
 
-const { Title } = Typography;
+import { PageTitle } from '@shared/ui';
 
 const StatisticsPage = () => {
   return (
-    <Space direction="vertical" size={16}>
-      <Title level={3}>Статистика</Title>
+    <Space direction="vertical">
+      <PageTitle title="Статистика" />
       <PastPredictions />
     </Space>
   );
