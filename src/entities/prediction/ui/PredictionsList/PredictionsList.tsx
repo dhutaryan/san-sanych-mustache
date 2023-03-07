@@ -5,23 +5,23 @@ import { Prediction } from '@shared/types';
 
 import { PastPredictionCard, PredictionCard } from '../PredictionCard';
 
-type CardName = 'upcoming' | 'past';
+type CardType = 'upcoming' | 'past';
 type CardProps = {
   prediction: Prediction;
 };
 
-const components: Record<CardName, FC<CardProps>> = {
+const components: Record<CardType, FC<CardProps>> = {
   upcoming: PredictionCard,
   past: PastPredictionCard,
 };
 
 type Props = PropsWithChildren<{
   predictions: Prediction[];
-  cardName: CardName;
+  cardType: CardType;
 }>;
 
-export const PredictionsList: FC<Props> = ({ predictions, cardName }) => {
-  const Card = components[cardName];
+export const PredictionsList: FC<Props> = ({ predictions, cardType }) => {
+  const Card = components[cardType];
 
   return (
     <Row gutter={[0, 16]}>

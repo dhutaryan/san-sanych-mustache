@@ -12,7 +12,7 @@ export const PastPredictions = () => {
   return (
     <Space direction="vertical" size={16}>
       <Title level={3}>Последние</Title>
-      <PredictionsList cardName="past" predictions={predictions} />
+      <PredictionsList cardType="past" predictions={predictions} />
     </Space>
   );
 };
