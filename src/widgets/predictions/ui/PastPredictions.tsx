@@ -1,18 +1,13 @@
-import { Space, Typography } from 'antd';
+import { FC } from 'react';
 
 import { PredictionsList } from '@entities/prediction';
 
-import { usePredictions } from '../hooks';
+import { PredictionsParams, usePredictions } from '../hooks';
 
-const { Title } = Typography;
+type Props = Omit<PredictionsParams, 'hasScore'>;
 
-export const PastPredictions = () => {
-  const { predictions } = usePredictions({ hasScore: true, take: 10 });
+export const PastPredictions: FC<Props> = ({ take }) => {
+  const { predictions } = usePredictions({ hasScore: true, take });
 
-  return (
-    <Space direction="vertical" size={16}>
-      <Title level={3}>Последние</Title>
-      <PredictionsList cardType="past" predictions={predictions} />
-    </Space>
-  );
+  return <PredictionsList cardType="past" predictions={predictions} />;
 };
