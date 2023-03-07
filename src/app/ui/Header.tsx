@@ -41,7 +41,7 @@ export const Header: FC = () => {
 
   return (
     <LayoutHeader>
-      <Image className="logo" src="/logo.svg" height={64} preview={false} />
+      <Image className="logo" src="/logo.png" height={64} preview={false} />
       <MenuContainer
         mode="horizontal"
         selectable={false}
