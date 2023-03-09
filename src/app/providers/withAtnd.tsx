@@ -36,7 +36,7 @@ const theme: ThemeConfig = {
   },
 };
 
-export const withTheme = (component: () => React.ReactNode) => () =>
+export const withAntd = (component: () => React.ReactNode) => () =>
   (
     <ConfigProvider theme={theme} locale={locale}>
       {component()}

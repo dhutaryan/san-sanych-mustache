@@ -1,6 +1,6 @@
 import compose from 'compose-function';
 
+import { withAntd } from './withAtnd';
 import { withRouter } from './withRouter';
-import { withTheme } from './withTheme';
 
-export const withProviders = compose(withRouter, withTheme);
+export const withProviders = compose(withRouter, withAntd);
