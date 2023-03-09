@@ -1,5 +1,11 @@
 import { ConfigProvider } from 'antd';
 import { ThemeConfig } from 'antd/es/config-provider/context';
+import locale from 'antd/locale/ru_RU';
+import 'dayjs/locale/ru';
+import { extend } from 'dayjs';
+import objectSupport from 'dayjs/plugin/objectSupport';
+
+extend(objectSupport);
 
 const white = '#ffffff';
 
@@ -31,4 +37,8 @@ const theme: ThemeConfig = {
 };
 
 export const withTheme = (component: () => React.ReactNode) => () =>
-  <ConfigProvider theme={theme}>{component()}</ConfigProvider>;
+  (
+    <ConfigProvider theme={theme} locale={locale}>
+      {component()}
+    </ConfigProvider>
+  );

@@ -1,5 +1,5 @@
 import { Card, Row } from 'antd';
-import { format } from 'date-fns';
+import dayjs from 'dayjs';
 import { CSSProperties, FC } from 'react';
 
 import { Prediction } from '@shared/types';
@@ -20,9 +20,8 @@ const bodyStyle: CSSProperties = {
 export const PredictionCard: FC<Props> = ({ prediction }) => {
   const points = usePoints(prediction);
   const teamNames = `${prediction.team1.name} - ${prediction.team2.name}`;
-  const startTime = format(
-    prediction.startTime.seconds * 1000,
-    'dd/MM/yyyy HH:mm',
+  const startTime = dayjs(prediction.startTime.seconds * 1000).format(
+    'DD/MM/YYYY HH:mm',
   );
 
   return (

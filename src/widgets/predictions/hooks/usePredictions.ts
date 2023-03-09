@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import {
   limit,
   orderBy,
@@ -14,9 +15,19 @@ import { Prediction, PredictionDocument } from '@shared/types';
 export interface PredictionsParams {
   hasScore: boolean;
   take?: number;
+  period?: PredictionsPeriodParam;
 }
 
-export const usePredictions = ({ hasScore, take }: PredictionsParams) => {
+export interface PredictionsPeriodParam {
+  month: number;
+  year: number;
+}
+
+export const usePredictions = ({
+  hasScore,
+  take,
+  period,
+}: PredictionsParams) => {
   const [predictions, setPredictions] = useState<Prediction[]>([]);
   const queryConstraints: QueryConstraint[] = [
     where('hasScore', '==', hasScore),
@@ -25,6 +36,17 @@ export const usePredictions = ({ hasScore, take }: PredictionsParams) => {
 
   if (take) {
     queryConstraints.push(limit(take));
+  }
+
+  if (period) {
+    const month = period.month;
+    const year = period.year;
+    const date = dayjs({ month, year });
+    const startMonthTime = date.startOf('month').toDate();
+    const endMonthTime = date.endOf('month').toDate();
+
+    queryConstraints.push(where('startTime', '>=', startMonthTime));
+    queryConstraints.push(where('startTime', '<=', endMonthTime));
   }
 
   const predictionsQuery = query<PredictionDocument>(
@@ -39,7 +61,7 @@ export const usePredictions = ({ hasScore, take }: PredictionsParams) => {
     );
 
     return unsubscribe;
-  }, []);
+  }, [period]);
 
   return { predictions };
 };
