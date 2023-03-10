@@ -6,7 +6,7 @@ service cloud.firestore {
     }
 
     match /users/{user} {
-      allow create;
+      allow create, read;
     }
   }
 }
