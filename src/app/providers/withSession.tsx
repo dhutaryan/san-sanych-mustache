@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import { getUser, setUser } from '@shared/api';
 import { auth } from '@shared/configs';
 import { SessionContext } from '@shared/lib';
-import { User, UserDocument } from '@shared/types';
+import { User, UserDocument, UserRole } from '@shared/types';
 
 export const withSession = (component: () => React.ReactNode) => () => {
-  const [setssionUser, setSetssionUser] = useState<User | null>(null);
+  const [sessionUser, setSessionUser] = useState<User | null>(null);
 
   const setUserData = (userId: string, userData: UserDocument | undefined) => {
     if (userData) {
       const user: User = { ...userData, id: userId };
-      setSetssionUser(user);
+      setSessionUser(user);
     }
   };
 
@@ -35,7 +35,11 @@ export const withSession = (component: () => React.ReactNode) => () => {
 
   return (
     <SessionContext.Provider
-      value={{ user: setssionUser, isAuth: !!setssionUser }}
+      value={{
+        user: sessionUser,
+        isAuth: !!sessionUser,
+        isAdmin: sessionUser?.role === UserRole.ADMIN,
+      }}
     >
       {component()}
     </SessionContext.Provider>
