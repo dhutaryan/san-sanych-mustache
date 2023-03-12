@@ -4,10 +4,16 @@ import { Navigate, Route, RouteProps, Routes } from 'react-router-dom';
 
 import { RoutePath } from '@shared/lib';
 
+const LoginPage = lazy(() => import('./auth/LoginPage'));
+
 const PredictionsPage = lazy(() => import('./predictions/PredictionsPage'));
 const StatisticsPage = lazy(() => import('./statistics/StatisticsPage'));
 
 const ROUTES: RouteProps[] = [
+  {
+    path: RoutePath.LOGIN,
+    element: <LoginPage />,
+  },
   {
     path: RoutePath.PREDICTIONS,
     element: <PredictionsPage />,

@@ -43,3 +43,6 @@ dist
 
 # env
 .env
+
+# firestore
+firebase-debug.log

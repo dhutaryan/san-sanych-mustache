@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "antd": "^5.2.2",
