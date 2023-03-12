@@ -1,7 +1,7 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /predictions/{prediction} {
+    match /predictions/{documents=**} {
       allow read;
     }
 
