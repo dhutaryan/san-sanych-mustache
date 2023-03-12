@@ -11,7 +11,6 @@ const white = '#ffffff';
 
 const theme: ThemeConfig = {
   token: {
-    colorBgLayout: white,
     fontSize: 16,
     lineHeight: 1,
     fontSizeHeading1: 40,

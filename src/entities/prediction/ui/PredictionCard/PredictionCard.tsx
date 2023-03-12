@@ -14,7 +14,6 @@ export type Props = {
 
 const bodyStyle: CSSProperties = {
   padding: '1rem',
-  boxShadow: '0 0.25rem 1.5rem rgb(0 0 0 / 12%)',
 };
 
 export const PredictionCard: FC<Props> = ({ prediction }) => {
