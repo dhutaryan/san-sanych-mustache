@@ -17,16 +17,18 @@ export const withSession = (component: () => React.ReactNode) => () => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
-      if (authUser) {
-        const userId = authUser.uid;
+      if (!authUser) {
+        return setSessionUser(null);
+      }
+
+      const userId = authUser.uid;
+      const userData = await getUser(userId);
+      setUserData(userId, userData);
+
+      if (!userData) {
+        await setUser(authUser);
         const userData = await getUser(userId);
         setUserData(userId, userData);
-
-        if (!userData) {
-          await setUser(authUser);
-          const userData = await getUser(userId);
-          setUserData(userId, userData);
-        }
       }
     });
 

@@ -1,7 +1,7 @@
 import { GoogleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
-import { useAuth } from '../hooks';
+import { useAuth } from '@entities/auth';
 
 export const GoogleLoginButton = () => {
   const { signInWithGoogle, isPending } = useAuth();

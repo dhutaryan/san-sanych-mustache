@@ -4,6 +4,8 @@ import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { FC, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import { SessionUserMenu } from '@features/session';
+
 import { RoutePath } from '@shared/lib';
 
 const MENU_ITEMS: ItemType[] = [
@@ -49,6 +51,7 @@ export const Header: FC = () => {
         selectedKeys={[path]}
         items={MENU_ITEMS}
       />
+      <SessionUserMenu />
     </LayoutHeader>
   );
 };
