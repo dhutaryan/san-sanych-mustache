@@ -22,7 +22,7 @@ const UserBlock = styled.div(
 
 export const SessionUserMenu = () => {
   const { token } = useToken();
-  const { sessiontUser, isAuth } = useSessiontUser();
+  const { sessiontUser } = useSessiontUser();
   const { logout } = useAuth();
 
   const items: MenuProps['items'] = [
@@ -33,10 +33,6 @@ export const SessionUserMenu = () => {
       onClick: logout,
     },
   ];
-
-  if (!isAuth) {
-    return null;
-  }
 
   return (
     <Dropdown menu={{ items }} trigger={['click']}>

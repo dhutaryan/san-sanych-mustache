@@ -7,6 +7,7 @@ import { User, UserDocument, UserRole } from '@shared/types';
 
 export const withSession = (component: () => React.ReactNode) => () => {
   const [sessionUser, setSessionUser] = useState<User | null>(null);
+  const [isPending, setIsPending] = useState<boolean>(true);
 
   const setUserData = (userId: string, userData: UserDocument | undefined) => {
     if (userData) {
@@ -17,7 +18,10 @@ export const withSession = (component: () => React.ReactNode) => () => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
+      setIsPending(true);
+
       if (!authUser) {
+        setIsPending(false);
         return setSessionUser(null);
       }
 
@@ -30,6 +34,8 @@ export const withSession = (component: () => React.ReactNode) => () => {
         const userData = await getUser(userId);
         setUserData(userId, userData);
       }
+
+      setIsPending(false);
     });
 
     return unsubscribe;
@@ -41,6 +47,7 @@ export const withSession = (component: () => React.ReactNode) => () => {
         user: sessionUser,
         isAuth: !!sessionUser,
         isAdmin: sessionUser?.role === UserRole.ADMIN,
+        isPending,
       }}
     >
       {component()}

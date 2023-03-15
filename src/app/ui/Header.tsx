@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
-import { Layout, Image, Menu } from 'antd';
+import { Layout, Image, Menu, Spin } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { FC, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import { GoogleLoginButton } from '@features/auth';
 import { SessionUserMenu } from '@features/session';
+
+import { useSessiontUser } from '@entities/session';
 
 import { RoutePath } from '@shared/lib';
 
@@ -38,6 +41,9 @@ const MenuContainer = styled(Menu)`
 export const Header: FC = () => {
   const location = useLocation();
   const [path, setPath] = useState(location.pathname);
+  const { isAuth, isPending } = useSessiontUser();
+
+  const userAuthContent = isAuth ? <SessionUserMenu /> : <GoogleLoginButton />;
 
   useEffect(() => setPath(location.pathname), [location]);
 
@@ -51,7 +57,7 @@ export const Header: FC = () => {
         selectedKeys={[path]}
         items={MENU_ITEMS}
       />
-      <SessionUserMenu />
+      {isPending ? <Spin delay={300} /> : userAuthContent}
     </LayoutHeader>
   );
 };
