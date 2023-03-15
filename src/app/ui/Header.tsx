@@ -1,26 +1,15 @@
 import styled from '@emotion/styled';
-import { Layout, Image, Menu, Spin } from 'antd';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
-import { FC, useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Layout, Image, Spin, Grid } from 'antd';
+import { FC } from 'react';
 
 import { GoogleLoginButton } from '@features/auth';
 import { SessionUserMenu } from '@features/session';
 
 import { useSessiontUser } from '@entities/session';
 
-import { RoutePath } from '@shared/lib';
+import { Menu } from './Menu';
 
-const MENU_ITEMS: ItemType[] = [
-  {
-    key: RoutePath.PREDICTIONS,
-    label: <Link to={RoutePath.PREDICTIONS}>Прогнозы</Link>,
-  },
-  {
-    key: RoutePath.STATISTICS,
-    label: <Link to={RoutePath.STATISTICS}>Статистика</Link>,
-  },
-];
+const { useBreakpoint } = Grid;
 
 const LayoutHeader = styled(Layout.Header)`
   display: flex;
@@ -32,32 +21,23 @@ const LayoutHeader = styled(Layout.Header)`
   }
 `;
 
-const MenuContainer = styled(Menu)`
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
+const AuthContainer = styled.div`
+  margin-left: auto;
 `;
 
 export const Header: FC = () => {
-  const location = useLocation();
-  const [path, setPath] = useState(location.pathname);
   const { isAuth, isPending } = useSessiontUser();
+  const { lg } = useBreakpoint();
 
   const userAuthContent = isAuth ? <SessionUserMenu /> : <GoogleLoginButton />;
 
-  useEffect(() => setPath(location.pathname), [location]);
-
   return (
     <LayoutHeader>
-      <Image className="logo" src="/logo.png" height={64} preview={false} />
-      <MenuContainer
-        mode="horizontal"
-        selectable={false}
-        disabledOverflow={true}
-        selectedKeys={[path]}
-        items={MENU_ITEMS}
-      />
-      {isPending ? <Spin delay={300} /> : userAuthContent}
+      <Image src="/logo.png" width={lg ? 64 : 48} preview={false} />
+      <Menu />
+      <AuthContainer>
+        {isPending ? <Spin delay={300} /> : userAuthContent}
+      </AuthContainer>
     </LayoutHeader>
   );
 };
