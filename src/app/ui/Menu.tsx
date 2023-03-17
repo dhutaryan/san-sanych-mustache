@@ -2,8 +2,10 @@ import { MenuOutlined } from '@ant-design/icons';
 import styled from '@emotion/styled';
 import { Dropdown, Grid, Menu as AntdMenu } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
+import { useSessiontUser } from '@entities/session';
 
 import { RoutePath } from '@shared/lib';
 
@@ -33,8 +35,23 @@ export const Menu = () => {
   const location = useLocation();
   const [path, setPath] = useState(location.pathname);
   const { lg } = useBreakpoint();
+  const { isAdmin } = useSessiontUser();
 
   useEffect(() => setPath(location.pathname), [location]);
+
+  const menuItems = useMemo(() => {
+    if (isAdmin) {
+      return [
+        ...MENU_ITEMS,
+        {
+          key: RoutePath.ADD_PREDICTION,
+          label: <Link to={RoutePath.ADD_PREDICTION}>Добавить прогноз</Link>,
+        },
+      ];
+    }
+
+    return MENU_ITEMS;
+  }, [isAdmin]);
 
   if (lg) {
     return (
@@ -43,14 +60,14 @@ export const Menu = () => {
         selectable={false}
         disabledOverflow={true}
         selectedKeys={[path]}
-        items={MENU_ITEMS}
+        items={menuItems}
       />
     );
   }
 
   return (
     <Dropdown
-      menu={{ items: MENU_ITEMS, selectable: true, selectedKeys: [path] }}
+      menu={{ items: menuItems, selectable: true, selectedKeys: [path] }}
       arrow={true}
     >
       <MenuIcon />
