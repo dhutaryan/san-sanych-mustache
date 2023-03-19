@@ -1,6 +1,6 @@
 import { Card, Row } from 'antd';
 import dayjs from 'dayjs';
-import { CSSProperties, FC } from 'react';
+import { FC } from 'react';
 
 import { Prediction } from '@shared/types';
 
@@ -12,10 +12,6 @@ export type Props = {
   prediction: Prediction;
 };
 
-const bodyStyle: CSSProperties = {
-  padding: '1rem',
-};
-
 export const PredictionCard: FC<Props> = ({ prediction }) => {
   const points = usePoints(prediction);
   const teamNames = `${prediction.team1.name} - ${prediction.team2.name}`;
@@ -24,7 +20,7 @@ export const PredictionCard: FC<Props> = ({ prediction }) => {
   );
 
   return (
-    <Card bodyStyle={bodyStyle}>
+    <Card>
       <Row gutter={[8, 4]}>
         <PredictionCardItem
           flex="150px"

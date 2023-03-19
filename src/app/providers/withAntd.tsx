@@ -29,6 +29,9 @@ const theme: ThemeConfig = {
       fontSize,
       lineHeight: 1.375,
     },
+    Card: {
+      paddingLG: 16,
+    },
     Layout: {
       colorBgHeader: white,
     },
