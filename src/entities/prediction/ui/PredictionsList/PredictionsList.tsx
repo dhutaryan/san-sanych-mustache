@@ -17,7 +17,7 @@ export const PredictionsList: FC<Props> = ({
   cardComponent: Card,
 }) => {
   return (
-    <Row gutter={[0, 16]}>
+    <Row gutter={[0, 8]}>
       {predictions.map((prediction) => (
         <Col flex="100%" key={prediction.id}>
           <Card prediction={prediction} />

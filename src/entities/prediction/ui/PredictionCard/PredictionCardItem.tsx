@@ -18,7 +18,7 @@ export const PredictionCardItem: FC<Props> = ({ flex, title, description }) => {
 
   return (
     <Col flex={lg ? flex : '100%'}>
-      <Row gutter={[0, 8]} justify={justify} wrap>
+      <Row gutter={0} justify={justify} wrap>
         <Col flex={lg ? '100%' : 'none'}>
           <Text type="secondary">{title}</Text>
         </Col>
