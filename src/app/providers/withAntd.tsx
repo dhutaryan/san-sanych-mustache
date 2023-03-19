@@ -8,11 +8,11 @@ import objectSupport from 'dayjs/plugin/objectSupport';
 extend(objectSupport);
 
 const white = '#ffffff';
+const fontSize = 16;
 
 const theme: ThemeConfig = {
   token: {
-    fontSize: 16,
-    lineHeight: 1,
+    fontSize,
     fontSizeHeading1: 40,
     fontSizeHeading2: 32,
     fontSizeHeading3: 28,
@@ -26,7 +26,7 @@ const theme: ThemeConfig = {
   },
   components: {
     Badge: {
-      fontSize: 16,
+      fontSize,
       lineHeight: 1.375,
     },
     Layout: {
