@@ -1,0 +1,1 @@
+export { ChampionshipsList } from './ui';

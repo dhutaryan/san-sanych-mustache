@@ -1,7 +1,11 @@
 import { collection, CollectionReference } from 'firebase/firestore';
 
 import { db } from '@shared/configs';
-import { PredictionDocument, UserDocument } from '@shared/types';
+import {
+  ChampionshipDocument,
+  PredictionDocument,
+  UserDocument,
+} from '@shared/types';
 
 export const predictionsCollection = collection(
   db,
@@ -12,3 +16,8 @@ export const usersCollection = collection(
   db,
   'users',
 ) as CollectionReference<UserDocument>;
+
+export const championshipsCollection = collection(
+  db,
+  'championships',
+) as CollectionReference<ChampionshipDocument>;

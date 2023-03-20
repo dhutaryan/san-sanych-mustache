@@ -22,6 +22,17 @@ const MENU_ITEMS: ItemType[] = [
   },
 ];
 
+const ADMIN_MENU_ITEMS = [
+  {
+    key: RoutePath.ADD_PREDICTION,
+    label: <Link to={RoutePath.ADD_PREDICTION}>Добавить прогноз</Link>,
+  },
+  {
+    key: RoutePath.CHAMPIONSHIPS,
+    label: <Link to={RoutePath.CHAMPIONSHIPS}>Чемпионаты</Link>,
+  },
+];
+
 const MenuContainer = styled(AntdMenu)`
   margin-left: 3rem;
 `;
@@ -41,13 +52,7 @@ export const Menu = () => {
 
   const menuItems = useMemo(() => {
     if (isAdmin) {
-      return [
-        ...MENU_ITEMS,
-        {
-          key: RoutePath.ADD_PREDICTION,
-          label: <Link to={RoutePath.ADD_PREDICTION}>Добавить прогноз</Link>,
-        },
-      ];
+      return [...MENU_ITEMS, ...ADMIN_MENU_ITEMS];
     }
 
     return MENU_ITEMS;

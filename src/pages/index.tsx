@@ -10,6 +10,10 @@ const PredictionsPage = lazy(() => import('./predictions/PredictionsPage'));
 const AddPredictionPage = lazy(() => import('./predictions/AddPredictionPage'));
 const StatisticsPage = lazy(() => import('./statistics/StatisticsPage'));
 
+const ChampionshipsPage = lazy(
+  () => import('./championships/ChampionshipsPage'),
+);
+
 const ROUTES: RouteProps[] = [
   {
     path: RoutePath.PREDICTIONS,
@@ -25,6 +29,10 @@ const PRIVATE_ROUTES: RouteProps[] = [
   {
     path: RoutePath.ADD_PREDICTION,
     element: <AddPredictionPage />,
+  },
+  {
+    path: RoutePath.CHAMPIONSHIPS,
+    element: <ChampionshipsPage />,
   },
 ];
 
