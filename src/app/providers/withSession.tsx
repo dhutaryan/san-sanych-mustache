@@ -4,10 +4,12 @@ import { getUser, setUser } from '@shared/api';
 import { auth } from '@shared/configs';
 import { SessionContext } from '@shared/lib';
 import { User, UserDocument, UserRole } from '@shared/types';
+import { Spinner } from '@shared/ui';
 
 export const withSession = (component: () => React.ReactNode) => () => {
   const [sessionUser, setSessionUser] = useState<User | null>(null);
   const [isPending, setIsPending] = useState<boolean>(true);
+  const [initialized, setInitialized] = useState<boolean>(false);
 
   const setUserData = (userId: string, userData: UserDocument | undefined) => {
     if (userData) {
@@ -22,6 +24,7 @@ export const withSession = (component: () => React.ReactNode) => () => {
 
       if (!authUser) {
         setIsPending(false);
+        setInitialized(true);
         return setSessionUser(null);
       }
 
@@ -36,10 +39,15 @@ export const withSession = (component: () => React.ReactNode) => () => {
       }
 
       setIsPending(false);
+      setInitialized(true);
     });
 
     return unsubscribe;
   }, []);
+
+  if (!initialized) {
+    return <Spinner />;
+  }
 
   return (
     <SessionContext.Provider

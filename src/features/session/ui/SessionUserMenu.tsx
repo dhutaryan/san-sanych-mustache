@@ -22,7 +22,7 @@ const UserBlock = styled.div(
 
 export const SessionUserMenu = () => {
   const { token } = useToken();
-  const { sessiontUser } = useSessiontUser();
+  const { user } = useSessiontUser();
   const { logout } = useAuth();
 
   const items: MenuProps['items'] = [
@@ -38,7 +38,7 @@ export const SessionUserMenu = () => {
     <Dropdown menu={{ items }} trigger={['click']}>
       <UserBlock token={token}>
         <Space size={4}>
-          {sessiontUser?.displayName} <CaretDownOutlined />
+          {user?.displayName} <CaretDownOutlined />
         </Space>
       </UserBlock>
     </Dropdown>
