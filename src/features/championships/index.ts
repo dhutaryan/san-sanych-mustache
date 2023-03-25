@@ -1,0 +1,1 @@
+export { AddChampionship } from './ui';

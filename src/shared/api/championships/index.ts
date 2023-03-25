@@ -1,7 +1,9 @@
-import { onSnapshot, Query, Unsubscribe } from 'firebase/firestore';
+import { addDoc, onSnapshot, Query, Unsubscribe } from 'firebase/firestore';
 import { Dispatch, SetStateAction } from 'react';
 
 import { Championship, ChampionshipDocument } from '@shared/types';
+
+import { championshipsCollection } from '../collections';
 
 export const championshipsSnapshot = (
   query: Query<ChampionshipDocument>,
@@ -16,4 +18,8 @@ export const championshipsSnapshot = (
       setResponse(result);
     },
   });
+};
+
+export const createChampionship = async (data: ChampionshipDocument) => {
+  await addDoc(championshipsCollection, data);
 };
