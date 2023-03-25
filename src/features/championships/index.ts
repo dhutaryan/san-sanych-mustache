@@ -1,1 +1,1 @@
-export { AddChampionship } from './ui';
+export { AddChampionship, EditChampionship } from './ui';

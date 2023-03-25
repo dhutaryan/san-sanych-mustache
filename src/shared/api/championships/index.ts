@@ -1,4 +1,11 @@
-import { addDoc, onSnapshot, Query, Unsubscribe } from 'firebase/firestore';
+import {
+  addDoc,
+  doc,
+  onSnapshot,
+  Query,
+  Unsubscribe,
+  updateDoc,
+} from 'firebase/firestore';
 import { Dispatch, SetStateAction } from 'react';
 
 import { Championship, ChampionshipDocument } from '@shared/types';
@@ -22,4 +29,13 @@ export const championshipsSnapshot = (
 
 export const createChampionship = async (data: ChampionshipDocument) => {
   await addDoc(championshipsCollection, data);
+};
+
+export const updateChampionship = async (
+  id: string,
+  data: Partial<ChampionshipDocument>,
+) => {
+  const docRef = doc(championshipsCollection, id);
+
+  await updateDoc(docRef, data);
 };

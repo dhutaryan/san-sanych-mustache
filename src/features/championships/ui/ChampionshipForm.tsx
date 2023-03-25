@@ -8,10 +8,11 @@ interface ChampionshipFormValue {
 }
 
 type Props = {
+  initialValues?: ChampionshipFormValue;
   submit: (value: ChampionshipFormValue) => void;
 };
 
-export const ChampionshipForm: FC<Props> = ({ submit }) => {
+export const ChampionshipForm: FC<Props> = ({ initialValues, submit }) => {
   const { required } = useFormRules();
 
   return (
@@ -19,6 +20,7 @@ export const ChampionshipForm: FC<Props> = ({ submit }) => {
       id="championship-form"
       layout="vertical"
       requiredMark="optional"
+      initialValues={initialValues}
       preserve={false}
       onFinish={submit}
     >

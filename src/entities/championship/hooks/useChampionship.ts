@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { createChampionship } from '@shared/api';
+import { createChampionship, updateChampionship } from '@shared/api';
 
 export interface CreateChampionship {
   name: string;
@@ -19,5 +19,15 @@ export const useChampionship = () => {
     }
   };
 
-  return { isPending, create };
+  const update = async (id: string, champ: CreateChampionship) => {
+    setIsPending(true);
+    try {
+      await updateChampionship(id, champ);
+      setIsPending(false);
+    } catch (error) {
+      setIsPending(false);
+    }
+  };
+
+  return { isPending, create, update };
 };
