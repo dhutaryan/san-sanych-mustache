@@ -9,17 +9,21 @@ type Props = {
   action?: ReactNode;
 };
 
+const Container = styled(Row)`
+  margin-bottom: 0.5rem;
+`;
+
 const TitleWrapper = styled(Title)`
   &.ant-typography {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 `;
 
 export const PageTitle: FC<Props> = ({ title, action }) => {
   return (
-    <Row justify="space-between">
+    <Container justify="space-between">
       <TitleWrapper level={3}>{title}</TitleWrapper>
       {action}
-    </Row>
+    </Container>
   );
 };
