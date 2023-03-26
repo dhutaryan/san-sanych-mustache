@@ -22,7 +22,7 @@ type Props = {
 export const EditChampionship: FC<Props> = ({ championship }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isPending, update } = useChampionship();
-  const { name } = championship;
+  const { name, global } = championship;
 
   const onShowModal = () => {
     setIsModalOpen(true);
@@ -60,7 +60,7 @@ export const EditChampionship: FC<Props> = ({ championship }) => {
         ]}
         onCancel={onCancel}
       >
-        <ChampionshipForm initialValues={{ name }} submit={onSubmit} />
+        <ChampionshipForm initialValues={{ name, global }} submit={onSubmit} />
         <Text type="secondary">
           <InfoIcon />
           Новое название чемпионата будет применено ко всем существующим

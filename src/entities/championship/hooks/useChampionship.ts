@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
 import { createChampionship, updateChampionship } from '@shared/api';
+import { ChampionshipDocument } from '@shared/types';
 
-export interface CreateChampionship {
-  name: string;
-}
+export type CreateChampionship = Omit<ChampionshipDocument, 'active'>;
 
 export const useChampionship = () => {
   const [isPending, setIsPending] = useState<boolean>(false);
