@@ -29,5 +29,15 @@ export const useChampionship = () => {
     }
   };
 
-  return { isPending, create, update };
+  const toggleActivation = async (id: string, active: boolean) => {
+    setIsPending(true);
+    try {
+      await updateChampionship(id, { active });
+      setIsPending(false);
+    } catch (error) {
+      setIsPending(false);
+    }
+  };
+
+  return { isPending, create, update, toggleActivation };
 };

@@ -1,1 +1,5 @@
-export { AddChampionship, EditChampionship } from './ui';
+export {
+  AddChampionship,
+  EditChampionship,
+  ToggleChampionshipActivation,
+} from './ui';

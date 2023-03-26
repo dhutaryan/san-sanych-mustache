@@ -1,4 +1,4 @@
-import { EditOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { EditTwoTone, InfoCircleOutlined } from '@ant-design/icons';
 import styled from '@emotion/styled';
 import { Button, Modal, Typography } from 'antd';
 import { FC, useState } from 'react';
@@ -39,7 +39,7 @@ export const EditChampionship: FC<Props> = ({ championship }) => {
 
   return (
     <>
-      <EditOutlined key="edit" onClick={onShowModal} />
+      <EditTwoTone key="edit" onClick={onShowModal} />
       <Modal
         title={'Редактирование "' + championship.name + '"'}
         open={isModalOpen}
